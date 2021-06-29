@@ -10,6 +10,8 @@ class ProductsController < ApplicationController
 
   # GET /products/1
   def show
+    product = Product.find_by(id: params[:id])
+
     render json: product
   end
 
@@ -35,6 +37,7 @@ class ProductsController < ApplicationController
 
   # DELETE /products/1
   def destroy
+    product = Product.find_by(id: params[:id])
     product.destroy
   end
 
