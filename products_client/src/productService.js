@@ -1,9 +1,10 @@
-//where I will make all the ser calls re: product obj
-
+//where I will make all the ser calls re: produ
 class ProductService{
+    static daysContainer = document.getElementById('days')
     constructor(endpoint){
         this.endpoint = endpoint 
     }
+   
 
 //this is like an initialize method, where we set properties efor eaech instance of the class and then set endpoint at initialization, gets instantiated as global in indeex.js
 //bc I am going to have a base url I don't want to change this repeatedly or write it or if I change port don't want to have to change everywhere 
@@ -23,6 +24,7 @@ class ProductService{
     }
 
     createProduct(){
+        //event.preventDefault()
         const product = {
             name: document.getElementById('name').value,
             brand: document.getElementById('brand').value,
@@ -47,7 +49,10 @@ class ProductService{
         })
     }
 
-    deleteProduct(id){
+    deleteProduct(element){
+        event.preventDefault()
+        element.parentElement.remove()
+        const id = element.parentElement.dataset.id
         fetch(`${this.endpoint}/products/${id}`, {
             method: 'DELETE',
             headers: {
@@ -55,8 +60,135 @@ class ProductService{
             }
         })
         .then(resp => resp.json())
-        .then(json => {debugger})
+        .then(json => {alert})
+    }
+
+    findAddToCalMon(element) {
+        const id = element.parentElement.dataset.id
+        fetch(`${this.endpoint}/products/${id}`)
+         .then(resp => resp.json())
+         .then(product => {
+            Product.mondayContainer.innerHTML +=
+            `<h3 id='${product.id}'>${product.name}</h3>
+            <p>${product.main_ingredient}</p>
+            <button class='bttn'>Remove</button>
+            `
+        })
+        
+    }
+
+    findAddToCalTues(element) {
+        
+        const id = element.parentElement.dataset.id
+        fetch(`${this.endpoint}/products/${id}`)
+         .then(resp => resp.json())
+         .then(product => {
+            Product.tuesdayContainer.innerHTML +=
+            `<h3 id='${product.id}'>${product.name}</h3>
+            <p>${product.main_ingredient}</p>
+            <button class='bttn'>Delete</button>
+            `
+        })
+        
+    }
+
+    findAddToCalWeds(element) {
+        
+        const id = element.parentElement.dataset.id
+        fetch(`${this.endpoint}/products/${id}`)
+         .then(resp => resp.json())
+         .then(product => {
+            Product.wednesdayContainer.innerHTML +=
+            `<h3 id='${product.id}'>${product.name}</h3>
+            <p>${product.main_ingredient}</p>
+            <button class='bttn'>Delete</button>
+            `
+        })
+        
+    }
+
+    findAddToCalThurs(element) {
+        
+        const id = element.parentElement.dataset.id
+        fetch(`${this.endpoint}/products/${id}`)
+         .then(resp => resp.json())
+         .then(product => {
+            Product.thursdayContainer.innerHTML +=
+            `<h3 id='${product.id}'>${product.name}</h3>
+            <p>${product.main_ingredient}</p>
+            <button class='bttn'>Delete</button>
+            `
+        })
+        
+    }
+
+    findAddToCalFri(element) {
+        
+        const id = element.parentElement.dataset.id
+        fetch(`${this.endpoint}/products/${id}`)
+         .then(resp => resp.json())
+         .then(product => {
+            Product.fridayContainer.innerHTML +=
+            `<h3 id='${product.id}'>${product.name}</h3>
+            <p>${product.main_ingredient}</p>
+            <button class='bttn'>Delete</button>
+            `
+        })
+        
+    }
+
+
+    findAddToCalSat(element) {
+        
+        const id = element.parentElement.dataset.id
+        fetch(`${this.endpoint}/products/${id}`)
+         .then(resp => resp.json())
+         .then(product => {
+            Product.saturdayContainer.innerHTML +=
+            `<h3 id='${product.id}'>${product.name}</h3>
+            <p>${product.main_ingredient}</p>
+            <button class='bttn'>Delete</button>
+            `
+        })
+        
+    }
+
+    findAddToCalSun(element) {
+        
+        const id = element.parentElement.dataset.id
+        fetch(`${this.endpoint}/products/${id}`)
+         .then(resp => resp.json())
+         .then(product => {
+            Product.sundayContainer.innerHTML +=
+            `<h3 id='${product.id}'>${product.name}</h3>
+            <p>${product.main_ingredient}</p>
+            <button class='bttn'>Delete</button>
+            `
+        })
+        
+    }
+
+    RemoveFromCal(element) {
+        const id = element.parentElement.dataset.id
+        fetch(`${this.endpoint}/products/${id}`)
+         .then(resp => resp.json())
+         .then(product => {
+            Product.parentNode.removeChild(element);
+             
+        })
+        
+    }
+
+    deleteElement(element){
+        element.parentElement.remove()
+        const id = element.parentElement.dataset.id
+        fetch(`${this.endpoint}/products/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(resp => resp.json())
+        .then(json => {alert})
     }
 }
-//^this method isnt called get so call in index.js
-//but we don't want to keep making these calls to service we want to do just one time and remember those items if we wanty to do something like use a filter.
