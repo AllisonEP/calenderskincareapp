@@ -2,63 +2,122 @@ class Product {
 //the way we remember the objects here is:
     static all = []
     static productsContainer = document.getElementById("products-container")
-    //i have to remove this elemt outside this array if i delete bc delete does not refresh the page and this array will be populated w whatever you keep back from first fetch, so first time fetches everything in backend, so might need to add add method to front end to filter out and remove that element from this array.
-    static  productForm = document.getElementById("form-container")
+    static calendarContainer = document.getElementById("calendar-container")
 
+    //i have to remove this elemt outside this array if i delete bc delete does not refresh the page and this array will be populated w whatever you keep back from first fetch, so first time fetches everything in backend, so might need to add add method to front end to filter out and remove that element from this array.
+    static productForm = document.getElementById("form-container")
+    static mondayContainer = document.getElementById('M')
+    static tuesdayContainer = document.getElementById('TU')
+    static wednesdayContainer = document.getElementById('WE')
+    static thursdayContainer = document.getElementById('TH')
+    static fridayContainer = document.getElementById('FR')
+    static saturdayContainer = document.getElementById('SA')
+    static sundayContainer = document.getElementById('SU')
+
+    
     constructor({id, name, brand, main_ingredient, user_id}){
         this.id = id
         this.name = name
         this.brand = brand
         this.main_ingredient = main_ingredient
         this.user_id = user_id
-        
-        this.element = document.createElement('li')
-        this.element.dataset.id = this.id
+        this.element = document.createElement('ol')
+        this.element.dataset.id = `${this.id}`
         this.element.id = `product-${this.id}`
-        this.element.addEventListener('click', this.handleClick)
-
-
+        this.element.addEventListener('click', handleButton) //this is effing things up
+       
         Product.all.push(this) //this is referencing the newly made instance
     }
 
     productHTML(){
-        this.element.innerHTML += `
-            <div>
-                <h3>${this.name}</h3>
-                <p>${this.brand} - ${this.main_ingredient}</p>
+        
+        this.element.innerHTML +=
+        `   <div class='product_list'>
+                <h3 id='${this.id}'>${this.name}</h3>
+                <p> Brand:${this.brand}</p>
+                <p> Primary Ingredient: ${this.main_ingredient}</p>
             </div>
-            <button id="delete-bttn">Delete</button>
+            <p>Which days are you using this?</p>
+            <button class='bttn' id='M'>Mon</button>
+            <button class='bttn' id='TU'>Tues</button>
+            <button class='bttn' id='WE'>Wed</button>
+            <button class='bttn' id='TH'>Thu</button>
+            <button class='bttn' id='FR'>Fri</button>
+            <button class='bttn' id='SA'>Sat</button>
+            <button class='bttn' id='SA'>Sun</button>
+            <br>
+            <br>
+            <button class='bttn'>Delete</button>
             <br>
             <br>
         `
+        const bttns = document.querySelectorAll('button')
+        for (const button of bttns){
+            button.addEventListener('click', this.handleButton)
+        }
+
         return this.element
     }
 
+
+
     appendOnDom(){
         Product.productsContainer.append(this.productHTML())
-       // Product.productsContainer.appendChild(productHTML())
+ 
     }
+
+
+    
 
     static renderForm(){
         Product.productForm.innerHTML += `
-        <form id="new-product-form">
+        <p>What've you got?<p/>
+        <form id="new-product-form" class='form'>
             Product Name: <input type="text" id="name">
             Brand: <input type="text" id="brand"> 
             Main/Active Ingredient: <input type="text" id="main_ingredient"> 
-            <input type="submit" id="create"> 
-        <form>
+            <br>
+            <br>
+            <input type="submit" name="productsubmit" value="productsubmit"> 
+        </form>
         `
     }
 
-    handleClick = () => {
-        if (event.target.innerText === 'Delete'){
-            this.element.remove(this.id)
-            productService.deleteProduct(this.id)
-        }
-     }
-  
-}
+    // handleClick(event){ 
+    //     event.preventDefault()
+    //     if (event.target.innerText === 'Delete'){
+    //         productService.deleteProduct(event.target)
+    //     }
+    // }
 
-//event.preventDefault()
-//productService.createProduct()
-//event.target.reset()
+    // handleButton(event){ 
+    //     event.preventDefault()
+    //     if (event.target.innerText === 'Delete'){
+    //         productService.deleteProduct(event.target)
+    //     }
+    //     else if (event.target.innerText === 'Mon'){
+    //         productService.findAddToCalMon(event.target)
+    //     }
+    //     else if (event.target.innerText === 'Tues'){
+
+    //         productService.findAddToCalTues(event.target)
+    //     }
+    //     else if (event.target.innerText === 'Wed'){
+    //         productService.findAddToCalWeds(event.target)
+    //     }
+    //     else if (event.target.innerText === 'Thu'){
+    //         productService.findAddToCalThurs(event.target)
+    //     }
+    //     else if (event.target.innerText === 'Fri'){
+    //         productService.findAddToCalFri(event.target)
+    //     }
+    //     else if (event.target.innerText === 'Sat'){
+    //         productService.findAddToCalSat(event.target)
+    //     }
+    //     else if (event.target.innerText === 'Sun'){
+    //         productService.findAddToCalSun(event.target)
+    //     }
+
+    // }
+      
+}
