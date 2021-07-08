@@ -4,7 +4,7 @@
 
 const base_url = "http://127.0.0.1:3000"
 const productService = new ProductService(base_url)
-//const userService = new UserService(base_url)
+const userService = new UserService(base_url)
 const mondayContainer = document.getElementById('M')
 
 // const userService = new UserService(base_url)
@@ -21,8 +21,8 @@ Product.productForm.addEventListener('submit', handleSubmit)
 //User.userForm.addEventListener('click', handleButton)
 // User.userForm.addEventListener('click', handleClick)
 
-//userService.getUsers()
-//User.renderUserForm()
+userService.getUsers()
+/User.renderUserForm()
 
 
 productService.getProducts() //as soon as page loads i get this index method requested
@@ -34,6 +34,15 @@ function handleSubmit(){
     productService.createProduct()
     event.target.reset()
 }
+
+function submitSomething(){
+    //productService.createProduct()
+    event.preventDefault()
+    userService.createUser()
+    console.log(user)
+    User.userHTML()
+}
+
 
 function handleButton(event){ 
     event.preventDefault()
