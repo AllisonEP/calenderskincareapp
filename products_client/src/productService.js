@@ -12,6 +12,7 @@ class ProductService{
 //create my read fetch/index of products
 
     getProducts(){
+        
         fetch(`${this.endpoint}/products`) //hitting and index endpoint here for array of object
         .then(resp => resp.json()) //jsonify bc all responses return as strings and we want in json format for javascript wortk
         .then(products => {
@@ -24,7 +25,7 @@ class ProductService{
     }
 
     createProduct(){
-        //event.preventDefault()
+        event.preventDefault()
         const product = {
             name: document.getElementById('name').value,
             brand: document.getElementById('brand').value,
@@ -70,8 +71,6 @@ class ProductService{
          .then(product => {
             Product.mondayContainer.innerHTML +=
             `<h3 id='${product.id}'>${product.name}</h3>
-            <p>${product.main_ingredient}</p>
-            <button class='bttn'>Remove</button>
             `
         })
         
@@ -86,7 +85,6 @@ class ProductService{
             Product.tuesdayContainer.innerHTML +=
             `<h3 id='${product.id}'>${product.name}</h3>
             <p>${product.main_ingredient}</p>
-            <button class='bttn'>Delete</button>
             `
         })
         
@@ -101,7 +99,6 @@ class ProductService{
             Product.wednesdayContainer.innerHTML +=
             `<h3 id='${product.id}'>${product.name}</h3>
             <p>${product.main_ingredient}</p>
-            <button class='bttn'>Delete</button>
             `
         })
         
@@ -116,7 +113,6 @@ class ProductService{
             Product.thursdayContainer.innerHTML +=
             `<h3 id='${product.id}'>${product.name}</h3>
             <p>${product.main_ingredient}</p>
-            <button class='bttn'>Delete</button>
             `
         })
         
@@ -131,7 +127,6 @@ class ProductService{
             Product.fridayContainer.innerHTML +=
             `<h3 id='${product.id}'>${product.name}</h3>
             <p>${product.main_ingredient}</p>
-            <button class='bttn'>Delete</button>
             `
         })
         
@@ -147,7 +142,6 @@ class ProductService{
             Product.saturdayContainer.innerHTML +=
             `<h3 id='${product.id}'>${product.name}</h3>
             <p>${product.main_ingredient}</p>
-            <button class='bttn'>Delete</button>
             `
         })
         
@@ -162,7 +156,6 @@ class ProductService{
             Product.sundayContainer.innerHTML +=
             `<h3 id='${product.id}'>${product.name}</h3>
             <p>${product.main_ingredient}</p>
-            <button class='bttn'>Delete</button>
             `
         })
         
@@ -173,8 +166,7 @@ class ProductService{
         fetch(`${this.endpoint}/products/${id}`)
          .then(resp => resp.json())
          .then(product => {
-            Product.parentNode.removeChild(element);
-             
+            Product.parentNode.removeChild(element);  
         })
         
     }
