@@ -33,11 +33,11 @@ class Product {
         
         this.element.innerHTML +=
         `   <div class='product_list'>
-                <h3 id='${this.id}'>${this.name}</h3>
-                <p> Brand:${this.brand}</p>
-                <p> Primary Ingredient: ${this.main_ingredient}</p>
+                <h3 class="new_product_name" id='${this.id}'>${this.name}</h3>
+                <p class="new_product_brand"> Brand: ${this.brand}</p>
+                <p class="new_product_ingredint"> Primary Ingredient: ${this.main_ingredient}</p>
             </div>
-            <p>Which days are you using this?</p>
+            <p>Choose when to use it: </p>
             <button class='bttn' id='M'>Mon</button>
             <button class='bttn' id='TU'>Tues</button>
             <button class='bttn' id='WE'>Wed</button>
@@ -71,53 +71,15 @@ class Product {
 
     static renderForm(){
         Product.productForm.innerHTML += `
-        <p>What've you got?<p/>
+        <h3>What've you got?<h3/>
         <form id="new-product-form" class='form'>
             Product Name: <input type="text" id="name">
             Brand: <input type="text" id="brand"> 
-            Main/Active Ingredient: <input type="text" id="main_ingredient"> 
-            <br>
-            <br>
-            <input type="submit" name="productsubmit" value="productsubmit"> 
+            Main/Active Ingredient: <input type="text" id="main_ingredient">
+            <input type="submit" class="submit_button" id="productsubmit" value="Add">
         </form>
         `
+        
     }
-
-    // handleClick(event){ 
-    //     event.preventDefault()
-    //     if (event.target.innerText === 'Delete'){
-    //         productService.deleteProduct(event.target)
-    //     }
-    // }
-
-    // handleButton(event){ 
-    //     event.preventDefault()
-    //     if (event.target.innerText === 'Delete'){
-    //         productService.deleteProduct(event.target)
-    //     }
-    //     else if (event.target.innerText === 'Mon'){
-    //         productService.findAddToCalMon(event.target)
-    //     }
-    //     else if (event.target.innerText === 'Tues'){
-
-    //         productService.findAddToCalTues(event.target)
-    //     }
-    //     else if (event.target.innerText === 'Wed'){
-    //         productService.findAddToCalWeds(event.target)
-    //     }
-    //     else if (event.target.innerText === 'Thu'){
-    //         productService.findAddToCalThurs(event.target)
-    //     }
-    //     else if (event.target.innerText === 'Fri'){
-    //         productService.findAddToCalFri(event.target)
-    //     }
-    //     else if (event.target.innerText === 'Sat'){
-    //         productService.findAddToCalSat(event.target)
-    //     }
-    //     else if (event.target.innerText === 'Sun'){
-    //         productService.findAddToCalSun(event.target)
-    //     }
-
-    // }
       
 }
