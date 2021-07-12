@@ -6,6 +6,7 @@
                          "content";
     width: 100vw; /* unnecessary, but let's keep things consistent */
     height: 100vh;
+    
   }
   
   @media screen and (min-width: 850px) {
@@ -123,6 +124,7 @@
     display: flex;
     display: grid;
     grid-template-columns: repeat(7, 1fr);  
+    
   }
   .days {
     display: flex;
@@ -164,7 +166,9 @@
   }
   
   main {
-    background-color: #FCFBFC;
+    
+      background-image: linear-gradient(180deg, rgb(249, 249, 249), rgb(254, 152, 134));
+    
   }
   
   .avatar__name {
@@ -213,24 +217,26 @@
   }
   
   .calendar {
-    background-color: white;
-    border: 1px;
+    background-color: transparent;
+    color: pink
+   
   }
   
   .calendar__header > div {
     text-transform: uppercase;
     font-size: 0.8em;
     font-weight: bold;
+    
   }
 
   
   .days > * {
     
     grid-auto-flow: column;
-    background-color: rgba(230, 132, 137, 0.4);
     border-radius: 15px;
     margin-right: 5px;
     padding: 10px;
+    
   }
 
   
@@ -241,47 +247,15 @@
     margin-right: 7px;
     padding: 10px;
     grid-column: 1;
-    border-right: 1px solid #e1e1e1;
-    border-top: 1px solid #e1e1e1;
+    
+    
   }
 
-  .calendar_day2 {
-    border-right: 1px solid #e1e1e1;
-    border-top: 1px solid #e1e1e1;
-  }
   
-  .calendar_day3 {
-    border-right: 1px solid #e1e1e1;
-    border-top: 1px solid #e1e1e1;
-  }
-
-  .calendar_day4 {
-    border-right: 1px solid #e1e1e1;
-    border-top: 1px solid #e1e1e1;
-  }
-
-  .calendar_day5 {
-    border-right: 1px solid #e1e1e1;
-    border-top: 1px solid #e1e1e1;
-  }
-
-  .calendar_day6 {
-    border-right: 1px solid #e1e1e1;
-    border-top: 1px solid #e1e1e1;
-  }
-
-  .calendar_day7 {
-    border-right: 1px solid #e1e1e1;
-    border-top: 1px solid #e1e1e1;
-  }
-
   .calendar__day:last-child {
     border-right: 0;
   }
   
-  .login{
-    
-  }
   .login-container{
     padding: 5px;
     border: 1px solid #e1e1e1;
@@ -293,11 +267,12 @@
   .login-container {
     display: block;
     margin-top: 1px;
-
+    margin-left: 200px;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
-    border:0.75em solid rgba(216,191,216,0.8);
+    width: 25%;
+    border:0.2em solid rgba(216,191,216,0.8);
  } 
   
   .login {
@@ -322,6 +297,15 @@
     font-size: 8px;
   }
 
+  .bttn:hover {background-color: #d7a1e9;
+  }
+  
+  .submit_button:active {
+    background-color: #d7a1e9;
+    box-shadow: 0 5px rgb(248, 227, 227);
+    transform: translateY(4px);
+  }
+
 .form {
     color: #E9967A;
 }
@@ -337,6 +321,15 @@
   display: inline-block;
   font-size: 12px;
   margin: 5em;
+}
+
+.submit_button:hover {background-color: #d7a1e9;
+}
+
+.submit_button:active {
+  background-color: #d7a1e9;
+  box-shadow: 0 5px rgb(248, 227, 227);
+  transform: translateY(4px);
 }
 /* important text colors and bold */
 
@@ -429,7 +422,7 @@ transform: rotate(90deg);
 
 
 input {
-  -webkit-writing-mode: horizontal-tb !important;
+  writing-mode: horizontal-tb !important;
   text-rendering: auto;
   color: -internal-light-dark(rgb(247, 116, 197), #d7A1e9);
   letter-spacing: normal;
@@ -444,13 +437,14 @@ input {
   -webkit-rtl-ordering: logical;
   cursor: text;
   margin: 0em;
-  font: 400 13.3333px Arial;
+  font: 400 13.3333px Helvetica;
   padding: 0px 2px;
   border-radius: 8px;
   border-width: 2px;
   border-style: inset;
   border-color: #d7A1e9;
   border-image: initial;
+  outline: none;
 }
 
 ol {
@@ -472,3 +466,17 @@ form {
   padding: 0em;
   padding-left: 0;
 }
+
+.avatarname ol {
+  color: #d7a1e9;
+  display: none;
+  position: center;
+  font-size: 15px;
+}
+.avatarname ol:last-of-type {
+  color: #d7a1e9;
+  display: block;
+  position: center;
+  font-size: 15px;
+}
+
