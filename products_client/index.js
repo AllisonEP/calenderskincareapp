@@ -6,42 +6,35 @@ const base_url = "http://127.0.0.1:3000"
 const productService = new ProductService(base_url)
 const userService = new UserService(base_url)
 const mondayContainer = document.getElementById('M')
+const userLoginForm = document.getElementById("login-cotainer")
 
-// const userService = new UserService(base_url)
-// const body = document.querySelector("body")
-// const logInput = document.querySelector("#login-form > p > input")
-//const product_list = document.getElementById("product_list")
-//const days = document.getElementById("day")
-//const product_lists = document.getElementById("product_list")
 
 
 
 
 Product.productForm.addEventListener('submit', handleSubmit)
-//User.userForm.addEventListener('click', handleButton)
-// User.userForm.addEventListener('click', handleClick)
+
 
 userService.getUsers()
-/User.renderUserForm()
+User.renderUserForm()
 
 
 productService.getProducts() //as soon as page loads i get this index method requested
 Product.renderForm()
 
 function handleSubmit(){
-    //productService.createProduct()
     event.preventDefault()
     productService.createProduct()
     event.target.reset()
 }
 
 function submitSomething(){
-    //productService.createProduct()
     event.preventDefault()
     userService.createUser()
-    console.log(user)
-    User.userHTML()
+    event.target.reset();    
 }
+
+
 
 
 function handleButton(event){ 
@@ -74,28 +67,3 @@ function handleButton(event){
 
 }
 
-// function handleOnClick(){
-//     //productService.createProduct()
-//     event.preventDefault()
-//     userService.createUser()
-//     event.target.reset()
-// }
-
-
-// body.addEventListener("click", event => {
-//     //   hide & seek with the form
-//     if (event.target.id === "login") {
-//         const name = logInput.value
-//         appBodyContainer.style.display = ""
-        
-//         loginContainer.style.display = "none"
-        
-//         renderGuestName(name)
-//     }
-//     else if (event.target.className === "logout") {
-//         appBodyContainer.style.display = "none"
-//         loginContainer.style.display = ""
-        
-//     }
-// })
-// })
