@@ -387,15 +387,18 @@
 .new_product_name{
   color: #937cee;
   font-size: 18px; 
+  margin-bottom: -1em;
 }
 .new_product_brand{
   color: #937cee;
   font-size: 15px; 
+  margin-bottom: -1em;
 }
 
 .new_product_ingredient{
   color: #937cee;
-  font-size: 15px; 
+  font-size: 15px;
+  margin-bottom: -1em;
 }
 .my-routine {
     color: #E9967A; 

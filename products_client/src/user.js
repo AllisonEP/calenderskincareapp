@@ -52,7 +52,8 @@ class User {
                 <br>
                 <br>
                 <button 
-                type="button" 
+                type="button"
+                class="onClickButton" 
                 onclick="submitSomething()">Submit</button>
  
             </form>
