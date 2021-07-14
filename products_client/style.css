@@ -341,6 +341,28 @@
     transform: translateY(4px);
   }
   
+  .onClickButton {
+    background-color: #9cc5fc; /* Dark Salmon */
+    border: none;
+    color: white;
+    padding: 4px 10px;
+    
+    border-radius: 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 8px;
+  }
+
+  .onClickButton:hover {background-color: #dbbfe4;
+  }
+  
+  .onClickButton:active {
+    background-color: #dbbfe4;
+    box-shadow: 0 5px rgb(248, 227, 227);
+    transform: translateY(4px);
+  }
+
 .form {
     color: #937cee;
 }
