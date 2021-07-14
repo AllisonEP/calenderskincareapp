@@ -3,35 +3,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/'-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
     <link rel="stylesheet" href="style.css">
     <title> Skincare Calendar </title>
 </head>
 <body>
-  
     <div class="wrapper">
       
         <main>
           <div class="toolbar">
 
             
-            <div class="my-routine">No ones asking about my skincare routine (but me)...</div>
-            <div class="search-input">
-              <input type="text" value="Which day do you want to see?">
-              <i class="fa fa-search"></i>
-            </div>
+            <div class="my-routine" style="text-shadow: 2px 2px 4px rgb(0 0 0 / 75%); color: white; font-size: 25;">No ones really asking about your skincare routine 
+            <p class= "my-routine-byline" style="text-shadow: 2px 2px 4px rgb(0 0 0 / 75%); color: white; font-size: 20; position: center">(but you can keep track of it here)...</p></div>
           </div>
+          
           <div class="login-container" id="login-container">
           </div>
           <div class="calendar">
             <div class="calendar__header">
-              <div>mon</div>
-              <div>tue</div>
-              <div>wed</div>
-              <div>thu</div>
-              <div>fri</div>
-              <div>sat</div>
-              <div>sun</div>
+              <div>Monday</div>
+              <div>Tuesday</div>
+              <div>Wednesday</div>
+              <div>Thursday</div>
+              <div>Friday</div>
+              <div>Saturday</div>
+              <div>Sunday</div>
             </div>
             <div class="calendar_container" id="calendar-container">
             <div class="days" id="days">
@@ -52,11 +52,13 @@
             <div class="avatar__img">
               <img src="https://picsum.photos/70" alt="avatar">
             </div>
-            <div class="avatarname" id="avid"></div>
+            <div class="avatarname" id="avid" >
+
+            </div>
           </div>
             <a class="menu__item menu__item--active" href="#">
               <i class="menu__icon fa fa-calendar"></i>
-              <span class="menu__text" style="color: #E9967A">Skincare calendar</span>
+              <span class="menu__text" style="text-shadow: 2px 2px 4px rgb(0 0 0 / 75%); color: white; font-size: 16; position: central;">Skincare calendar</span>
               <br>
               <br>
               <br>
@@ -74,7 +76,7 @@
 
     </div>
 
-    </div>>
+    </div>
 
     </div>
 
@@ -98,7 +100,7 @@
       </script> 
       <script>
       function getUserList() {  
-        const element = document.getElementById('users-container');
+        const element = document.getElementById('login-container');
         const dataID = element.getAttribute('data-id');
         document.dataID.value = usersContainer.options[usersContainer.selectedIndex].text;
       }   
