@@ -35,7 +35,7 @@ class Product {
         `   <div class='product_list'>
                 <h3 class="new_product_name" id='${this.id}'>${this.name}</h3>
                 <p class="new_product_brand"> Brand: ${this.brand}</p>
-                <p class="new_product_ingredint"> Primary Ingredient: ${this.main_ingredient}</p>
+                <p class="new_product_ingredient"> Primary Ingredient: ${this.main_ingredient}</p>
             </div>
             <p>Choose when to use it: </p>
             <button class='bttn' id='M'>Mon</button>
@@ -82,4 +82,5 @@ class Product {
         
     }
       
+    
 }
