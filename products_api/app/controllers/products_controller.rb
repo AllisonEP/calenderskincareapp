@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   # GET /products
   def index
-    products = Product.all
+    products = Product.find_by(user_id: params[:user_id])
 
     render json: products
   end
