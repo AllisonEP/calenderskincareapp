@@ -25,7 +25,7 @@ class User {
         userHTML(){
              this.element.innerHTML +=
              `  <div class='avatarname'>
-                    <h3 id='${this.id}'>${this.name}</h3>
+                    <h3 class='current_user' id='${this.id}'>${this.name}</h3>
                 </div>
                 <br>
                 <br>
