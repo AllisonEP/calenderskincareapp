@@ -1,20 +1,12 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
-  # GET /users
-  def index
-    users = User.all
+  def new
+    @user = User.new
+  end 
 
-    render json: users
-  end
-
-  # GET /users/1
-  def show
-    render json: user
-  end
-
-  # POST /users
-  def create
+   # POST /users
+   def create
     user = User.new(user_params)
 
     if user.save
@@ -24,6 +16,20 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/1
+  def show
+    render json: user
+  end
+
+
+  # GET /users
+  def index
+    users = User.all
+
+    render json: users
+  end
+
+  
   # PATCH/PUT /users/1
   def update
     if user.update(user_params)
