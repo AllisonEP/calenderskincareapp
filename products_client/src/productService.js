@@ -30,7 +30,7 @@ class ProductService{
             name: document.getElementById('name').value,
             brand: document.getElementById('brand').value,
             main_ingredient: document.getElementById('main_ingredient').value,
-            user_id: 1
+            user_id: parseInt(document.getElementsByClassName('current_user')[0].id)
         }
 
         const configObj = {
@@ -52,7 +52,7 @@ class ProductService{
 
     deleteProduct(element){
         event.preventDefault()
-        element.parentElement.remove()
+        element.parentElement.remove() 
         const id = element.parentElement.dataset.id
         fetch(`${this.endpoint}/products/${id}`, {
             method: 'DELETE',
