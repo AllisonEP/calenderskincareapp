@@ -22,13 +22,13 @@ User.renderUserForm()
 productService.getProducts() //as soon as page loads i get this index method requested
 Product.renderForm()
 
-function handleSubmit(){
+function handleSubmit(event){
     event.preventDefault()
     productService.createProduct()
     event.target.reset()
 }
 
-function submitSomething(){
+function submitSomething(event){
     event.preventDefault()
     userService.createUser()
     event.target.reset();    
