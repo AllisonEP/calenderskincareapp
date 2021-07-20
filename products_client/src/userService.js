@@ -19,8 +19,9 @@ class UserService{
         //now need to appen to dom dont write code in here, segway to product class which is responsible for this, where we create js object for each of these products inside the array and then use the instance methods associated with that class to append them to the dom
             for (const user of users){
             const u = new User(user)
-            u.appendOnDom()
+            
             }
+            User.all[User.all.length-1].appendOnDom()
         })
     }
 
@@ -42,6 +43,7 @@ class UserService{
         fetch(`${this.endpoint}/users`, configObj)
         .then(resp => resp.json())
         .then(user => {
+            console.log('test', user)
             const u = new User(user)
             u.appendOnDom()
         })
